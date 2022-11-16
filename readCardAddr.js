@@ -81,7 +81,11 @@ setInterval(function() {
 	console.log(addressPart1);
 	console.log(addressPart2);
 	
-	console.log(ethers.utils.toUtf8String(addressPart1))
+	//console.log(ethers.utils.toUtf8String(addressPart1))
   
-	
+	let array = [72, 101, 108, 108, 111, 32, 87, 111, 114, 108, 100];
+
+	let stringFromArray = utils.toUtf8String(array)
+
+	console.log(stringFromArray);
 }, 500);
