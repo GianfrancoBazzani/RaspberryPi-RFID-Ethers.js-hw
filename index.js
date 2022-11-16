@@ -38,17 +38,6 @@ async function main(){
 	//Connecting signer to contract
 	const ControlAccess = new ethers.Contract("0x6Ad1b8E61b31B1575427aDa77A7d3ee59BeaEfeA", ControlAccessArtifact.abi, signer);
 
-	//Bytes array to Hex string conversion
-	const toHexString = (bytes) => {
-	  return bytes.map(function(byte) {
-	    if(byte > 9){
-	      return (byte & 0xFF).toString(16);
-	    } else {
-	      return "0" + (byte & 0xFF).toString(16);
- 	   }
-	  }).join('')
-	}
-
 	var mutex = false;
 
 	//#RFID setup
@@ -118,9 +107,9 @@ async function main(){
 		//Stop card communication
 		mfrc522.stopCrypto();
 		//Address hexstring conversion
-		let cardAddress = ("0x" + toHexString(recoveredAddressPart1) + toHexString(recoveredAddressPart2).slice(0,8));
+		let cardAddress = ethers.utils.hexlify(recoveredAddressPart1.concat(recoveredAddressPart2.slice(0,4)));
 		try{
-			let formatedCardAddress = ethers.utils.getAddress(cardAddress);
+			
 
 			mutex = true;
 
