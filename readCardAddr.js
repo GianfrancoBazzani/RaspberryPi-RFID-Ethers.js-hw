@@ -78,10 +78,8 @@ setInterval(function() {
 	 //# Stop
  	 mfrc522.stopCrypto();
 
-	console.log(addressPart1);
-	console.log(addressPart2);
 	
-	console.log(ethers.utils.hexlify(addressPart1));
+	console.log(ethers.utils.hexlify(addressPart1.concat(addressPart2.slice(0,4))));
 
 
 
