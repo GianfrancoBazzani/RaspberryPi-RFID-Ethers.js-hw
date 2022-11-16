@@ -19,17 +19,6 @@ const softSPI = new SoftSPI({
 //mfrc522 Handler 
 const mfrc522 = new MFRC522(softSPI).setResetPin(22).setBuzzerPin(18);
 
-//Bytes array to Hex string conversion
-const toHexString = (bytes) => {
-  return bytes.map(function(byte) {
-    if(byte > 9){
-      return (byte & 0xFF).toString(16);
-    } else {
-      return "0" + (byte & 0xFF).toString(16);
-    }
-  }).join('')
-}
-
 
 //main loop
 setInterval(function() {
