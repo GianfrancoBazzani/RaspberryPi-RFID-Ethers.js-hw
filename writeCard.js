@@ -1,4 +1,4 @@
-import {ethers} from ethers;
+import {ethers} from "ethers";
 import MFRC522 from "mfrc522-rpi";
 import SoftSPI from "rpi-softspi";
 
