@@ -67,7 +67,7 @@ setInterval(function() {
 	addressPart1 = mfrc522.getDataForBlock(8);
 
     //# Authenticate on Block 9 with key and uid
-  	if (!mfrc522.authenticate(8, key, uid)) {
+  	if (!mfrc522.authenticate(9, key, uid)) {
         console.log("Authentication Error");
         return;
     }
