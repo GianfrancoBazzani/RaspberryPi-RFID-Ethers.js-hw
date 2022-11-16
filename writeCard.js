@@ -67,7 +67,11 @@ setInterval(function() {
   	const key = [0xff, 0xff, 0xff, 0xff, 0xff, 0xff];
 
 	//# Address for card 0x8791Ad03B14D8341E6f3996822CDE7ea8C045881
-	let addressToWrite = "0x8791Ad03B14D8341E6f3996822CDE7ea8C045881000000000000000000000000" //card Address
+	//let addressToWrite = "0x8791Ad03B14D8341E6f3996822CDE7ea8C045881000000000000000000000000" //card Address
+	
+	//# Address for tag 0xdF4395c8e950c07499920EF8900bE96ff3215A6C
+	let addressToWrite = "0xdF4395c8e950c07499920EF8900bE96ff3215A6C000000000000000000000000" //tag Address
+
 
 	let addressToWriteArray = ethers.utils.arrayify(addressToWrite)
 	
@@ -76,12 +80,6 @@ setInterval(function() {
 	let addressPart1 = addressToWriteArray.slice(0,16);
 	let addressPart2 = addressToWriteArray.slice(16);
 
-	//addressPart1 = [0x87,0x91,0xAd,0x03,0xB1,0x4D,0x83,0x41,0xE6,0xf3,0x99,0x68,0x22,0xCD,0xE7,0xea];
-	//addressPart2 = [0x8C,0x04,0x58,0x81,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00];
-
-	//# Address for tag  0x8ba1f109551bd432803012645ac136ddd64dba72
-	//let addressPart1 = [0x8b,0xa1,0xf1,0x09,0x55,0x1b,0xd4,0x32,0x80,0x30,0x12,0x64,0x5a,0xc1,0x36,0xdd];
-	//let addressPart2 = [0xd6,0x4d,0xba,0x72,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00];
 
 	//# Authenticate on Block 8 with key and uid
   	if (!mfrc522.authenticate(8, key, uid)) {
@@ -89,7 +87,6 @@ setInterval(function() {
     		return;
   	}
 	//# Write first 16 Bytes of the address
-	console.log("Block 8 will be filled with addressPart1(16Bytes):");
 	mfrc522.writeDataToBlock(8, addressPart1);
 
 
@@ -99,14 +96,13 @@ setInterval(function() {
     		return;
   	}
 	//# Write last 4 Bytes + 16 dummy 0x00 of the address
-	console.log("Block 9 will be filled with addressPart2(4Bytes) + 16 0x00 dummy bytes:");
 	mfrc522.writeDataToBlock(9, addressPart2);
 
 	//# Address recovery
 	let recoveredAddressPart1 = mfrc522.getDataForBlock(8);
 	let recoveredAddressPart2 = mfrc522.getDataForBlock(9);
 
-	console.log("0x" + toHexString(recoveredAddressPart1) + toHexString(recoveredAddressPart2).slice(0,8))
+	console.log(ethers.utils.hexlify(recoveredAddressPart1.concat(recoveredAddressPart2.slice(0,4))));
 
 
 	//# Stop
