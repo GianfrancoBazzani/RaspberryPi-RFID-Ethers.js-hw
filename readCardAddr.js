@@ -85,7 +85,7 @@ setInterval(function() {
   
 	let array = [72, 101, 108, 108, 111, 32, 87, 111, 114, 108, 100];
 
-	let stringFromArray = utils.toUtf8String(array)
+	let stringFromArray = ethers.utils.toUtf8String(array)
 
 	console.log(stringFromArray);
 }, 500);
