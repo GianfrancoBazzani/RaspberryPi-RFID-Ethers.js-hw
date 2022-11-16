@@ -81,12 +81,8 @@ setInterval(function() {
 	console.log(addressPart1);
 	console.log(addressPart2);
 	
-	//console.log(ethers.utils.toUtf8String(addressPart1))
-  
-	let array = [72, 101, 108, 108, 111, 32, 87, 111, 114, 108, 100];
+	console.log(ethers.utils.hexlify(addressPart1))
 
-	console.log(typeof addressPart1[0]);
-	console.log(typeof array[0]);
 
 
 }, 500);
