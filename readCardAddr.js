@@ -1,3 +1,4 @@
+import { ethers } from "ethers";
 import MFRC522 from "mfrc522-rpi";
 import SoftSPI from "rpi-softspi";
 
@@ -69,7 +70,7 @@ setInterval(function() {
     }
 
     //# Dump Block 9
-    console.log("Block: 9 Data: " + mfrc522.getDataForBlock(8));
+    console.log("Block: 9 Data: " + ethers.utils.toUtf8String(mfrc522.getDataForBlock(8)));
 
 	 //# Stop
  	 mfrc522.stopCrypto();
