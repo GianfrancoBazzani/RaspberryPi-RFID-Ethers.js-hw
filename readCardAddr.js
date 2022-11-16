@@ -85,7 +85,8 @@ setInterval(function() {
   
 	let array = [72, 101, 108, 108, 111, 32, 87, 111, 114, 108, 100];
 
-	let stringFromArray = ethers.utils.toUtf8String(array)
+	console.log(typeof addressPart1[0]);
+	console.log(typeof array[0]);
 
-	console.log(stringFromArray);
+
 }, 500);
