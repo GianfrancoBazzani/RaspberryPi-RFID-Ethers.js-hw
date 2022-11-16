@@ -73,7 +73,7 @@ setInterval(function() {
     }
 
     //# Dump Block 9
-	addressPart2 = mfrc522.getDataForBlock(8);
+	addressPart2 = mfrc522.getDataForBlock(9);
 
 	 //# Stop
  	 mfrc522.stopCrypto();
