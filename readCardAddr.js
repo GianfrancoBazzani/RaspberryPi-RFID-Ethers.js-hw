@@ -81,7 +81,7 @@ setInterval(function() {
 	console.log(addressPart1);
 	console.log(addressPart2);
 	
-	console.log(ethers.utils.hexlify(addressPart1))
+	console.log(ethers.utils.hexlify(addressPart1));
 
 
 
