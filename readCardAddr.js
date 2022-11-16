@@ -54,14 +54,17 @@ setInterval(function() {
 	//Default key for authentication
   	const key = [0xff, 0xff, 0xff, 0xff, 0xff, 0xff];
 
+	let addressPart1 = [];
+	let addressPart2 = [];
+
 	//# Authenticate on Block 8 with key and uid
   	if (!mfrc522.authenticate(8, key, uid)) {
     		console.log("Authentication Error");
     		return;
   	}
 
-	 //# Dump Block 8
-  	console.log("Block: 8 Data: " + mfrc522.getDataForBlock(8));
+	//# Dump Block 8
+	addressPart1 = mfrc522.getDataForBlock(8);
 
     //# Authenticate on Block 9 with key and uid
   	if (!mfrc522.authenticate(8, key, uid)) {
@@ -70,9 +73,14 @@ setInterval(function() {
     }
 
     //# Dump Block 9
-    console.log("Block: 9 Data: " + ethers.utils.toUtf8String(mfrc522.getDataForBlock(8)));
+	addressPart2 = mfrc522.getDataForBlock(8);
 
 	 //# Stop
  	 mfrc522.stopCrypto();
+
+	console.log(addressPart1);
+	console.log(addressPart2);
+	
+  
 	
 }, 500);
