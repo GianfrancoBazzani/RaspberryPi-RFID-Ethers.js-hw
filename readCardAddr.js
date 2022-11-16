@@ -81,6 +81,7 @@ setInterval(function() {
 	console.log(addressPart1);
 	console.log(addressPart2);
 	
+	console.log(ethers.utils.toUtf8String(addressPart1))
   
 	
 }, 500);
