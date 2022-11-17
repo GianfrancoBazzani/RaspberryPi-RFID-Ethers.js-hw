@@ -115,7 +115,7 @@ async function main(){
 			console.log(AccessControl)
 			
 		  	//Contract function call
-		  	const tx = await AccessControl.register(cardAddress);
+		  	const tx = await AccessControl['register(address)'](cardAddress);
 		  	await tx.wait();
 
 			setTimeout(()=>{},5000);
