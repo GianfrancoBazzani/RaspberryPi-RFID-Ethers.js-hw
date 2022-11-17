@@ -110,7 +110,7 @@ async function main(){
 			
 
 			mutex = true;
-
+			console.log("Is address =", ethers.utils.isAddress(cardAddress))
 		  	//Contract function call
 		  	const tx = await AccessControl.register(ethers.utils.getAddress(cardAddress));
 		  	await tx.wait();
