@@ -38,6 +38,8 @@ async function main(){
 
 	var mutex = false;
 
+	console.log(AccessControl)
+	
 	//#RFID setup
 	//SPI Configuration
 	const softSPI = new SoftSPI({
@@ -110,9 +112,9 @@ async function main(){
 			
 
 			mutex = true;
-			console.log("Is address =", ethers.utils.isAddress(cardAddress))
+			
 		  	//Contract function call
-		  	const tx = await AccessControl.register(ethers.utils.getAddress(cardAddress));
+		  	const tx = await AccessControl.register(cardAddress);
 		  	await tx.wait();
 
 			setTimeout(()=>{},5000);
