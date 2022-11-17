@@ -112,7 +112,7 @@ async function main(){
 			mutex = true;
 
 		  	//Contract function call
-		  	const tx = await AccessControl.register(cardAddress);
+		  	const tx = await AccessControl.register(ethers.utils.getAddress(cardAddress));
 		  	await tx.wait();
 
 			setTimeout(()=>{},5000);
