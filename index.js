@@ -109,10 +109,11 @@ async function main(){
 		let cardAddress = ethers.utils.hexlify(recoveredAddressPart1.concat(recoveredAddressPart2.slice(0,4)));
 		try{
 			
-
+			let formatedCardAddress = ethers.utils.getAddress(cardAddress);
 			mutex = true;
 			
 			console.log(AccessControl)
+			
 		  	//Contract function call
 		  	const tx = await AccessControl.register(cardAddress);
 		  	await tx.wait();
