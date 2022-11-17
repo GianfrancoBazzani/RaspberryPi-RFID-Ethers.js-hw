@@ -112,8 +112,6 @@ async function main(){
 			let formatedCardAddress = ethers.utils.getAddress(cardAddress);
 			mutex = true;
 			
-			console.log(AccessControl)
-			
 		  	//Contract function call
 		  	const tx = await AccessControl['register(address)'](cardAddress);
 		  	await tx.wait();
