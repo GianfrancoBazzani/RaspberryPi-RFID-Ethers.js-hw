@@ -1,0 +1,50 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "FareCalculator",
+  "sourceName": "contracts/FareCalculator.sol",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "start_",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "stop_",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "occupancy_",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "userAddress_",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "contractAddress_",
+          "type": "address"
+        }
+      ],
+      "name": "evaluate",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}

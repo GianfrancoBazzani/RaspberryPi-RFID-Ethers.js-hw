@@ -6,9 +6,7 @@ import SoftSPI from "rpi-softspi";
 
 async function main(){
 	//#Ethers.js setup
-	const ControlAccessArtifact = JSON.parse(fs.readFileSync('./artifacts/contracts/ControlAccess.sol/ControlAccess.json', 'utf-8'));
-
-	//import ControlAccessArtifact from "./artifacts/contracts/ControlAccess.sol/ControlAccess.json" assert {type: 'json'};
+	const AccessControlArtifact = JSON.parse(fs.readFileSync('./artifacts/contracts/AccessControl.sol/AccesControl.json', 'utf-8'));
 
 	const providerRPC = {
   		goerli: {
@@ -27,7 +25,7 @@ async function main(){
 
 
 	//HW signer wallet
-	const signer = new ethers.Wallet("180bfdfa5044a3c2cc1f991dc66f9929d3a434a4cdd5723999b0593a4877e740", provider);
+	const signer = new ethers.Wallet("d83b2dc2199c7c2def7d781b842ca54e2b8d0f2852c77441fe742c2b0833dad3", provider);
 
 	let balance = await signer.getBalance();
 	let address = await signer.getAddress();
@@ -36,7 +34,7 @@ async function main(){
 	console.log("HW balance :" +  ethers.utils.formatEther(balance));
 
 	//Connecting signer to contract
-	const ControlAccess = new ethers.Contract("0x6Ad1b8E61b31B1575427aDa77A7d3ee59BeaEfeA", ControlAccessArtifact.abi, signer);
+	const AccessControl = new ethers.Contract("0x5B65D6Dc1C2A8909604CD0188822D06975E9218B", AccessControlArtifact.abi, signer);
 
 	var mutex = false;
 
@@ -114,7 +112,7 @@ async function main(){
 			mutex = true;
 
 		  	//Contract function call
-		  	const tx = await ControlAccess.enter(cardAddress);
+		  	const tx = await AccessControl.register(cardAddress);
 		  	await tx.wait();
 
 			setTimeout(()=>{},5000);
