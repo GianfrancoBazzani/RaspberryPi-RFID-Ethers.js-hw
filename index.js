@@ -5,8 +5,8 @@ import SoftSPI from "rpi-softspi";
 
 
 async function main(){
-	//#Ethers.js setup
-	const AccessControlArtifact = JSON.parse(fs.readFileSync('./artifacts/contracts/AccessControl.sol/AccesControl.json', 'utf-8'));
+	//#Ethers.js setup 
+	const AccessControlArtifact = JSON.parse(fs.readFileSync('./artifacts/contracts/AccessControl.sol/AccessControl.json', 'utf-8'));
 
 	const providerRPC = {
   		goerli: {
