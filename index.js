@@ -39,7 +39,7 @@ async function main(){
 	console.log("HW balance :" +  ethers.utils.formatEther(balance));
 
 	//Connecting signer to contract
-	const AccessControl = new ethers.Contract("0x5B65D6Dc1C2A8909604CD0188822D06975E9218B", AccessControlArtifact.abi, signer);
+	const AccessControl = new ethers.Contract("0x95cdc27c4ec7f2c928269e6EF416Ba6749f30126", AccessControlArtifact.abi, signer);
 
 	var mutex = false;
 

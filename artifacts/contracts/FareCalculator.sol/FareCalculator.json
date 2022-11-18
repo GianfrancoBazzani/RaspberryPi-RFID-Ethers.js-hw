@@ -24,11 +24,6 @@
           "internalType": "address",
           "name": "userAddress_",
           "type": "address"
-        },
-        {
-          "internalType": "address",
-          "name": "contractAddress_",
-          "type": "address"
         }
       ],
       "name": "evaluate",
