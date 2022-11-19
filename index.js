@@ -14,11 +14,11 @@ async function main(){
     			rpc: "https://eth-goerli.g.alchemy.com/v2/NLb92VZ1dlIIDe-CJYgImlKQ5hovum1Y", 
     			chainId: 5,
   			},
-		PolygonzkEVMTestnet: {
+		/*PolygonzkEVMTestnet: {
 				url: `https://rpc.public.zkevm-test.net`,
 				accounts: [PRIVATE_KEY],
 				chainId: 1402
-			  }
+			  }*/
 		};
 
 	const provider = new ethers.providers.StaticJsonRpcProvider(
